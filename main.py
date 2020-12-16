@@ -10,16 +10,51 @@ All this functions should check for errors, follow the comments to see all cases
 There should be NO ERRORS from Python in the console.
 """
 
-def add_to_dict():
+def add_to_dict(dic={}, arg="", defi=""):
+  if type(dic) != dict:
+    print("You need to send a dictionary. You sent: " + str(type(dic)))
+  elif defi == "":
+    print("You need to send a word and a definition.")
+  elif arg in dic:
+    print(f"{arg} is already on the dictionary. Won't add.")
+  else:
+    dic[arg] = defi
+    print(arg + " has been added.")
   pass
 
-def get_from_dict():
+def get_from_dict(dic={}, arg=""):
+  if type(dic) != dict:
+    print("You need to send a dictionary. You sent: " + str(type(dic)))
+  elif arg == "":
+    print("You need to send a word to search for.")
+  elif arg not in dic:
+    print(f"{arg} was not found in this dict.")
+  else:
+    print(f"{arg}: {dic[arg]}")
   pass
 
-def update_word():
+def update_word(dic={}, arg="", defi=""):
+  if type(dic) != dict:
+    print("You need to send a dictionary. You sent: " + str(type(dic)))
+  elif defi == "":
+    print("You need to send a word and a definition to update.")
+  elif arg not in dic:
+    print(f"{arg} is not on the dict. Can't update non-existing word.")
+  else:
+    dic[arg] = defi
+    print(f"{arg} has been updated to: {defi}.")
   pass
 
-def delete_from_dict():
+def delete_from_dict(dic={}, arg=""):
+  if type(dic) != dict:
+    print("You need to send a dictionary. You sent: " + str(type(dic)))
+  elif arg == "":
+    print("You need to specify a word to delete.")
+  elif arg not in dic:
+    print(f"{arg} is not in this dict. Won't delete.")
+  else:
+    del dic[arg]
+    print(arg + " has been deleted.")
   pass
 
 # \/\/\/\/\/\/\ DO NOT TOUCH  \/\/\/\/\/\/\
